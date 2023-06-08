@@ -1,0 +1,40 @@
+<form [formGroup]="volunteerform" (ngSubmit)="onSubmit(volunteerform)"
+    id="volunteerform">
+    <div>
+        <label>
+            Name
+            <input type = "text" id= "name" formControlName="name" placeholder="">
+        </label>
+        <div *ngIf="volunteerform.get('name')!.invalid  && (volunteerform.get('name')!.dirty || volunteerform.get('name')!.touched)">
+            Please provide a name
+        </div>
+    </div>
+    <div>
+        <label>
+            Division
+            <input type = "text" id="expertise" formControlName="expertise" placeholder="Technology">
+        </label>
+        <div *ngIf="volunteerform.get('expertise')!.invalid && (volunteerform.get('expertise')!.dirty || volunteerform.get('expertise')!.touched)">
+            Please provide a expertise
+        </div>
+    </div>
+    <div>
+        <label>
+            Membership
+            <input type = "text" id="membership" formControlName="membership" placeholder="">
+        </label>
+        <div *ngIf="volunteerform.get('membership')!.invalid && (volunteerform.get('membership')!.dirty || volunteerform.get('membership')!.touched)">
+            Please provide a membership
+        </div>
+    </div>
+    <div>
+        <label>
+            Duration
+            <input type = "text" formControlName="duration" placeholder="">
+        </label>
+        <div *ngIf="volunteerform.get('duration')!.invalid && (volunteerform.get('duration')!.dirty || volunteerform.get('duration')!.touched)">
+            Please provide a duration
+        </div>
+    </div>
+    <button type="submit" [disabled]="volunteerform.invalid">Submit</button>
+</form>
